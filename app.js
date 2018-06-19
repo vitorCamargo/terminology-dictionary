@@ -11,10 +11,6 @@ var usuario = require('./routes/usuario');
 var index = require('./routes/index');
 var pesquisa = require('./routes/pesquisa');
 var cadastros = require('./routes/cadastros');
-var movimentacao = require('./routes/movimentacao');
-var emprestimo = require('./routes/emprestimo');
-var relatorio = require('./routes/relatorio');
-var historico = require('./routes/historico');
 
 var app = express();
 
@@ -31,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-              secret: 'macho_alfa',
+              secret: '',
               resave: false,
               saveUninitialized: true,
               cookie: { maxAge: new Date(Date.now() + (60 * 1000 * 15)) }
@@ -46,27 +42,19 @@ app.use('/usuario', usuario);
 app.use('/', index);
 app.use('/pesquisa', pesquisa);
 app.use('/cadastro', cadastros);
-app.use('/movimentacao', movimentacao);
-app.use('/emprestimos', emprestimo);
-app.use('/relatorio', relatorio);
-app.use('/historico', historico);
 
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // renderiza a página erro
+  
   res.status(err.status || 500);
-  res.render('page-500', {usuario: 'Vitor'});
+  res.render('page-500');
 });
 
 module.exports = app;
