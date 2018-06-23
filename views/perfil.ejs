@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class = "no-js">
+	<head>
+    <title> Perfil | Dicionário Terminológico </title>
+    <% include partials/head %>
+		<script>
+			$(document).ready(function() {
+				<% if (scriptEdit.length > 0) { %>
+					$('<%= scriptEdit %>').click();
+				<% } %>
+			});
+		</script>
+  </head>
+
+  <body>
+		<a href = "#alterarSenha" style = "display: none" id = "alteraSenha" data-toggle = "modal"></a> <!-- Link para Alterar Senha -->
+		<% include partials/headerDefault %>
+
+    <div class = "container">
+      <div class = "content">
+        <div class = "content-container">
+
+          <div class = "content-header">
+            <h2 class = "content-header-title"> PERFIL DO USUÁRIO </h2>
+            <ol class = "breadcrumb">
+              <li><a href = "/"> Home </a></li>
+              <li><a href = "javascript:;"> Usuário </a></li>
+              <li class = "active"> Perfil </li>
+            </ol>
+          </div>
+
+          <div class = "row">
+						<% if (message.length > 0) { %>
+							<div class = "alert alert-<%= message_status %> col-sm-12"> <%= message %> </div>
+						<% } %>
+            <div class = "col-md-3 col-sm-4">
+
+              <ul class = "nav nav-pills nav-stacked">
+                <li class = "active">
+                  <a href = "#perfil-tab" data-toggle = "tab">
+                    <i class = "fa fa-user"></i>
+                    &nbsp;&nbsp;Configuração do Perfil
+                  </a>
+                </li>
+                <li class = "">
+                  <a href = "#senha-tab" data-toggle = "tab">
+                    <i class = "fa fa-lock"></i>
+                    &nbsp;&nbsp;Mudar Senha
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+
+            <div class = "col-md-9 col-sm-8">
+              <div class = "tab-content stacked-content">
+
+                <div class = "tab-pane fade active in" id = "perfil-tab">
+
+                  <h3> Editar Informação de Perfil </h3>
+                  <p> Faça as aterações necessárias sobre o seu perfil. </p>
+                  <hr> <br>
+
+                  <form action = "/usuario/editar" method = "POST" class = "form-horizontal">
+										<% dataUsuario.forEach(function(usuario) { %>
+											<input type = "text" name = "usuarioAntigo" style = "display: none;" value = "<%= usuario.login %>" class = "form-control">
+
+	                    <div class = "form-group">
+	                      <label class = "col-md-3"> Usuário </label>
+
+	                      <div class = "col-md-7">
+	                        <input type = "text" name = "usuario" value = "<%= usuario.login %>" class = "form-control">
+	                      </div>
+	                    </div>
+
+	                    <div class = "form-group">
+	                      <label class = "col-md-3"> Nome </label>
+
+	                      <div class = "col-md-7">
+	                        <input type = "text" name = "nome" value = "<%= usuario.nome %>" class = "form-control">
+	                      </div>
+	                    </div>
+										<% }); %>
+
+                    <br>
+
+                    <div class = "form-group">
+                      <div class = "col-md-7 col-md-push-3">
+                        <button type = "submit" class = "btn btn-primary"> Salvar Alterações </button>
+                        &nbsp;
+                        <button type = "reset" class = "btn btn-default"> Cancelar </button>
+                      </div>
+                    </div>
+
+                  </form>
+
+                </div>
+
+                <div class = "tab-pane fade" id = "senha-tab">
+
+                  <h3> Alterar Senha </h3>
+                  <p> Digite senha anterior e a nova senha. </p>
+                  <br>
+
+                  <form action = "/usuario/alteracaoSenha" method = "POST" class = "form-horizontal">
+										<% dataUsuario.forEach(function(usuario) { %>
+											<input type = "text" name = "usuario" style = "display: none;" value = "<%= usuario.login %>" class = "form-control">
+										<% }); %>
+                    <div class = "form-group">
+                      <label class = "col-md-3"> Senha Antiga </label>
+
+                      <div class = "col-md-7">
+                        <input type = "password" name = "senhaAntiga" class = "form-control" required>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <div class = "form-group">
+                      <label class = "col-md-3"> Nova Senha </label>
+
+                      <div class = "col-md-7">
+                        <input type = "password" name = "senhaNova1" class = "form-control" required>
+                      </div>
+                    </div>
+
+                    <div class = "form-group">
+                      <label class = "col-md-3"> Confirmar Nova Senha </label>
+
+                      <div class = "col-md-7">
+                        <input type = "password" name = "senhaNova2" class = "form-control" required>
+                      </div>
+                    </div>
+
+                    <br>
+
+                    <div class = "form-group">
+                      <div class = "col-md-7 col-md-push-3">
+                        <button type = "submit" class = "btn btn-primary"> Alterar Senha </button>
+                        &nbsp;
+                        <button type = "reset" class = "btn btn-default"> Cancelar </button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+		<div id = "alterarSenha" class = "modal modal-styled fade">
+      <div class = "modal-dialog">
+        <div class = "modal-content">
+
+          <div class = "modal-header">
+            <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true"> &times; </button>
+            <h3 class = "modal-title"> ALTERAR SENHA </h3>
+          </div>
+
+          <div class = "modal-body">
+						<form action = "/usuario/alterarSenha" method = "POST" class = "form-horizontal">
+							<% if(dataAdminSenha.length > 0) dataAdminSenha.forEach(function(admin) { %>
+              	<input name = "usuario" type = "text" style = "display: none" value = "<%= admin.login %>">
+								<input name = "senha" type = "text" style = "display: none;" value = "<%= admin.senha %>">
+							<% }); %>
+              <p> Está seguro com essa ação? Está ação é definitiva! </p>
+              <hr>
+
+              <div class = "form-group">
+								<div class = "col-md-7 col-md-push-3">
+									<button type = "button" data-dismiss = "modal" class = "btn btn-default"> CANCELAR </button>
+									&nbsp;
+									<button type = "submit" class = "btn btn-primary"> ALTERAR </button>
+								</div>
+							</div>
+
+						</form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class = "footer"></footer>
+  </body>
+</html>

@@ -57,7 +57,7 @@ CREATE TABLE termo (
 	PRIMARY KEY (id),
 	FOREIGN KEY (alterou) REFERENCES admin (login),
 	FOREIGN KEY (pertence) REFERENCES tipo (nome),
-	FOREIGN KEY (rg) REFERENCES gramatica (sigla),
+	FOREIGN KEY (rg) REFERENCES gramatica (sigla)
 );
 -- Entidade
 

@@ -13,10 +13,17 @@ router.get('/cadastro', function(req, res, next) {
     res.redirect("/");
     return;
   }
-  
-  res.render('cadastroUsuario', {
-    usuario: req.session.nome,
-    permissao: req.session.permissao
+
+  controller_usuario.listar(function(err, resultsUsuario) {
+    res.render('cadastroUsuario', {
+      usuario: req.session.nome,
+      permissao: req.session.permissao,
+      message_status: '',
+      message: '',
+      scriptEdit: '',
+      dataAdminRemove: '',
+      dataUsuario: resultsUsuario
+    });
   });
 });
 
@@ -34,18 +41,38 @@ router.get('/logout', function(req, res, next) {
   });
 });
 
+// Abre tela de Perfil do usuário.
 router.get('/perfil', function(req, res, next) {
   if(req.session.usuario == null) {
     res.redirect("/usuario/login");
     return;
   }
-  
-  res.render('perfil', {
-    usuario: req.session.nome,
-    permissao: req.session.permissao
+
+  controller_usuario.listarPerfil(function(err, resultsUsuario) {
+    res.render('perfil', {
+      usuario: sess.nome,
+      permissao: sess.permissao,
+      message_status: '',
+      message: '',
+      scriptEdit: '',
+      dataAdminSenha: '',
+      dataUsuario: resultsUsuario
+    });
   });
 });
 
-router.post('/logarUsuario', controller_usuario.login_post);
+router.post('/cadastrar', controller_usuario.cadastrar);
+router.post('/logarUsuario', controller_usuario.login);
+
+router.get('/remocao/:login', controller_usuario.remocao);
+router.post('/remover', controller_usuario.remover);
+
+router.get('/promover/:login', controller_usuario.promover);
+router.get('/rebaixar/:login', controller_usuario.rebaixar);
+
+router.post('/editar', controller_usuario.editar);
+
+router.post('/alteracaoSenha', controller_usuario.alteracaoSenha);
+router.post('/alterarSenha', controller_usuario.alterarSenha);
 
 module.exports = router;

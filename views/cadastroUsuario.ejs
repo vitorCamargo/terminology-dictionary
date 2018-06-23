@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class = "no-js">
+	<head>
+    <title> Cadastro de Usuários | Dicionário Terminológico </title>
+    <% include partials/head %>
+
+    <script>
+		  $(document).ready(function() {
+		    $('.usuarios').addClass("active");
+				<% if (scriptEdit.length > 0) { %>
+					$('<%= scriptEdit %>').click();
+				<% } %>
+		  });
+		</script>
+  </head>
+
+  <body>
+		<a href = "#removerAdmin" style = "display: none" id = "removeAdmin" data-toggle = "modal"></a> <!-- Link para Remover Administrador -->
+		<% include partials/headerDefault %>
+
+    <div class = "container">
+      <div class = "content">
+        <div class = "content-container">
+
+          <div class = "content-header">
+            <h2 class = "content-header-title"> GERENCIAMENTO DE USUÁRIOS </h2>
+            <ol class = "breadcrumb">
+              <li><a href = "/"> Home </a></li>
+              <li><a href = "javascript:;"> Usuário </a></li>
+              <li class = "active"> Gerenciamento  </li>
+            </ol>
+          </div>
+
+          <div class = "row">
+            <div class = "col-md-12">
+              <ul class = "nav nav-pills">
+                <li class = "active">
+                  <a href = "#pesquisa" data-toggle = "tab"> Visualizar Usuários </a>
+                </li>
+                <li>
+                  <a href = "#cadastro" data-toggle = "tab"> Cadastro de Usuários </a>
+                </li>
+              </ul>
+
+              <div class = "tab-content">
+                <div class = "tab-pane fade in active" id = "pesquisa">
+                  <hr>
+                  <h3> Pesquisa de Usuários </h3>
+                  <p> Sendo possível ver todos os usuários do sistema, permite apagar o mesmo ou dar/retirar permissão. </p>
+                  <hr><br>
+
+                  <table class = "table table-striped table-bordered table-hover table-highlight table-checkable" data-provide = "datatable"
+                  data-info = "true" data-search = "true" data-paginate = "true">
+
+                    <thead>
+                      <tr>
+                        <th data-filterable = "true" data-sortable = "true"> Nome </th>
+                        <th data-filterable = "true" data-sortable = "true"> Usuário </th>
+                        <th data-filterable = "true" data-sortable = "true" style = "width: 90px;"> Status </th>
+                        <th data-filterable = "false" data-sortable = "false"> Opções </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+											<% dataUsuario.forEach(function(usuario) { %>
+	                      <tr>
+	                        <td> <%= usuario.nome %> </td>
+	                        <td> <%= usuario.login %> </td>
+													<% if(usuario.fodao == 1) { %>
+		                        <td class = "text-center"><span class = "label label-success"> Com Permissão </span></td>
+		                        <td class = "text-center">
+		                          <a href = "/usuario/rebaixar/<%= usuario.login %>" class = "btn btn-xs btn-warning ui-tooltip" data-toggle = "tooltip" data-placement = "top" title = "Remover Permissão">
+		                            <i class = "fa fa-file-o"></i>
+		                          </a>
+		                          <a href = "/usuario/remocao/<%= usuario.login %>" class = "btn btn-xs btn-danger ui-tooltip" data-toggle = "tooltip" data-placement = "top" title = "Remover Usuário">
+		                            <i class = "fa fa-times"></i>
+		                          </a>
+		                        </td>
+													<% } else { %>
+														<td class = "text-center"><span class = "label label-tertiary"> Sem Permissão </span></td>
+														<td class = "text-center">
+		                          <a href = "/usuario/promover/<%= usuario.login %>" class = "btn btn-xs btn-warning ui-tooltip" data-toggle = "tooltip" data-placement = "top" title = "Dar Permissão">
+		                            <i class = "fa fa-file-text-o"></i>
+		                          </a>
+		                          <a href = "/usuario/remocao/<%= usuario.login %>" class = "btn btn-xs btn-danger ui-tooltip" data-toggle = "tooltip" data-placement = "top" title = "Remover Usuário">
+		                            <i class = "fa fa-times"></i>
+		                          </a>
+		                        </td>
+													<% } %>
+	                      </tr>
+											<% }); %>
+                    </tbody>
+
+                  </table>
+                </div>
+
+                <div class = "tab-pane fade" id = "cadastro">
+                  <hr>
+                  <h3> Cadastro de Usuários </h3>
+                  <p> Preencha os campos abaixo, lembrando que dar permissão a um usuário, peermite que o mesmo, crie novos usuário também. </p>
+                  <hr><br>
+
+                  <form action = "/usuario/cadastrar" method = "POST" class = "form-horizontal">
+
+                    <div class = "form-group">
+                      <label class = "col-md-3 col-md-push-1"> Usuário </label>
+
+                      <div class = "col-md-4">
+                        <input type = "text" name = "usuario" value = "" class = "form-control" required>
+                      </div>
+                    </div>
+
+                    <div class = "form-group">
+                      <label class = "col-md-3 col-md-push-1"> Nome </label>
+
+                      <div class = "col-md-4">
+                        <input type = "text" name = "nome" value = "" class = "form-control" required>
+                      </div>
+                    </div>
+
+                    <div class = "form-group">
+                      <label class = "col-md-3 col-md-push-1"> Senha </label>
+
+                      <div class = "col-md-3">
+                        <input type = "password" name = "senha" class = "form-control" required>
+                      </div>
+                    </div>
+
+                    <div class = "form-group">
+                      <div class = "checkbox">
+                        <label class = "col-md-2 col-md-push-3">
+                          <input name = "permissao" type = 'checkbox' class = 'icheck-input'>
+                          Adicionar Permissão
+                        </label>
+                      </div>
+                  	</div>
+
+                  	<br>
+
+                    <div class = "form-group">
+                      <div class = "col-md-7 col-md-push-3">
+                        <button type = "submit" class = "btn btn-primary"> Cadastrar </button>
+                        &nbsp;
+                        <button type = "reset" class = "btn btn-default"> Limpar </button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+
+		        </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id = "removerAdmin" class = "modal modal-styled fade">
+      <div class = "modal-dialog">
+        <div class = "modal-content">
+
+          <div class = "modal-header">
+            <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true"> &times; </button>
+            <h3 class = "modal-title"> REMOVER USUÁRIO </h3>
+          </div>
+
+          <div class = "modal-body">
+						<form action = "/usuario/remover" method = "POST" class = "form-horizontal">
+							<% if(dataAdminRemove.length > 0) dataAdminRemove.forEach(function(usuario) { %>
+              	<input name = "login" style = "display: none" value = "<%= usuario.login %>">
+							<% }); %>
+              <p> Está seguro com essa ação? Está ação é definitiva! </p>
+              <hr>
+              <div class = "form-group">
+								<div class = "col-md-7 col-md-push-3">
+									<button type = "button" data-dismiss = "modal" class = "btn btn-default"> CANCELAR </button>
+									&nbsp;
+									<button type = "submit" class = "btn btn-primary"> REMOVER </button>
+								</div>
+							</div>
+
+						</form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class = "footer"></footer>
+  </body>
+</html>

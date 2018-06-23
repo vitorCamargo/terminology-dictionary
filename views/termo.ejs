@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html class = "no-js">
+	<head>
+    <title> Termos | Dicionário Terminológico </title>
+		<% include partials/head %>
+
+		<script>
+		  $(document).ready(function() {
+		    $('.gerenciamento').addClass("active");
+		  });
+		</script>
+  </head>
+
+  <body>
+		<% include partials/headerDefault %>
+
+    <div class = "container">
+      <div class = "content">
+        <div class = "content-container">
+
+          <div class = "content-header">
+            <h2 class = "content-header-title"> GERENCIAMENTO DE TERMOS </h2>
+            <ol class = "breadcrumb">
+              <li><a href = "/"> Home </a></li>
+              <li><a href = "javascript:;"> Grenciamento </a></li>
+              <li class = "active"> Termos </li>
+            </ol>
+          </div>
+
+          <div class = "row">
+            <div class = "col-md-12">
+              <form method = "POST" action = "/termo/pesquisar" class = "form">
+                <div class = "form-group">
+
+                  <div class = "input-group">
+                    <input value = "" name = "pesquisa-texto" type = "text" class = "form-control input-lg" placeholder = "Digite o nome do termo que procura.">
+
+                    <span class = "input-group-btn">
+                      <button type = "submit" class = "btn btn-primary btn-lg" type = "button"><i class = "fa fa-search"></i> &nbsp; Pesquisar </button>
+                    </span>
+                  </div>
+
+                </div>
+              </form>
+              <br><br>
+              
+              <div class = "col-md-8">
+                <h3 class = "heading"> Categorias </h3>
+                <br>
+              </div>
+
+              <div class = "col-md-4 col-sidebar-right">
+                <a href = "#exibicaoTermo" data-toggle = "modal" class = "btn btn-secondary btn-jumbo btn-block"> Cadastrar Termo </a>
+              </div>
+            </div>
+
+            <div class = "col-md-12">
+              <div class = "row">
+
+                <div class = "col-md-4 col-sm-4">
+                  <h4>
+                    &nbsp; Categoria 1 
+                    &nbsp; <small> (12) </small>
+                  </h4>
+                  
+                  <ul class = "icons-list support-list">
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        How Secure Is My Password?      
+                      </a>
+                    </li>   
+
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        Can I Change My Username?   
+                      </a>
+                    </li>  
+
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        Where Can I Upload My Avatar?    
+                      </a>
+                    </li>  
+
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        How Do I Change My Timezone?     
+                      </a>
+                    </li>  
+
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        How Do I Change My Password?      
+                      </a>
+                    </li>  
+                  </ul>
+                </div>
+                
+                <div class = "col-md-4 col-sm-4">
+                  <h4>
+                    &nbsp; Categoria 2
+                    &nbsp; <small> (12) </small>
+                  </h4>
+                  
+                  <ul class = "icons-list support-list">
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        What Technologies Are Used?      
+                      </a>
+                    </li>  
+
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        What Are The API Limits?     
+                      </a>
+                    </li>
+                      
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        Why Was My Developer Application Rejected?    
+                      </a>
+                    </li>
+                      
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        Where can I find the documentation?   
+                      </a>
+                    </li>
+                      
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        How Do I Get An API Key? 
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class = "col-md-4 col-sm-4">
+                  <h4>
+                    &nbsp; Categoria 3
+                    &nbsp; <small> (4) </small>
+                  </h4>
+                  
+                  <ul class = "icons-list support-list">
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        What Technologies Are Used?      
+                      </a>
+                    </li>  
+
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        What Are The API Limits?     
+                      </a>
+                    </li>
+                      
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        Why Was My Developer Application Rejected?    
+                      </a>
+                    </li>
+                      
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        Where can I find the documentation?   
+                      </a>
+                    </li>
+                      
+                    <li>
+                      <i class = "icon-li fa fa-angle-right"></i> 
+                      <a href = "#exibicaoTermo" data-toggle = "modal">
+                        How Do I Get An API Key? 
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id = "exibicaoTermo" class = "modal fade">
+      <div class = "modal-dialog">
+        <div class = "modal-content">
+
+          <div class = "modal-header">
+    			  <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true"> &times; </button>
+    			  <h3 class = "modal-title"> NOME DO TERMO </h3>
+          </div>
+
+          <div class = "modal-body">
+            Aqui vai todo o termo formatado
+          </div>
+
+          <div class = "modal-footer">
+            <a type = "reset" data-dismiss = "modal" class = "btn btn-default"> FECHAR </a>
+            &nbsp;
+            <a href = "#edicaoTermo" data-toggle = "modal" class = "btn btn-warning"> EDITAR </a>
+            &nbsp;
+            <a href = "#removerTermo" data-toggle = "modal" class = "btn btn-danger"> REMOVER </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id = "cadastroTermo" class = "modal fade">
+  		<div class = "modal-dialog">
+  		  <div class = "modal-content">
+
+    			<div class = "modal-header">
+    			  <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true"> &times; </button>
+    			  <h3 class = "modal-title"> CADASTRO - NOVO TERMO </h3>
+          </div>
+          
+          <div class = "modal-body">
+						<form method = "POST" action = "/termo/cadastrar" class = "form-horizontal">
+
+							<div class = "form-group">
+								<label class = "col-md-4"> Nome </label>
+
+								<div class = "col-md-7">
+									<input value = "" type = "text" name = "nome" class = "form-control" required/>
+								</div>
+							</div>
+              
+              <div class = "form-group">
+								<label class = "col-md-4"> Referência Gramatical </label>
+
+								<div class = "col-md-7">
+                  <select id = "s2_basic" name = "refGramatical" class = "form-control">
+                    <optgroup label = "Referências">
+                      <option value = "adj"> Adjetivo (adj) </option>
+                      <option value = "sf"> Substantivo Feminino (sf) </option>
+                      <option value = "sm"> Substantivo Masculino (sm) </option>
+                    </optgroup>
+                  </select>
+								</div>
+              </div>
+              
+              <div class = "form-group">
+								<label class = "col-md-4"> Sigla/Acrônimo </label>
+
+								<div class = "col-md-5">
+									<input value = "" type = "text" name = "sigla" class = "form-control"/>
+								</div>
+              </div>
+
+              <hr>              
+              <div class = "form-group">
+                <label class = "col-md-4"> Variantes </label>
+
+                <div class = "col-md-7">
+                  <select id = "s2_multi_value" name = "variantes" class = "form-control" multiple>
+                    <optgroup label = "Categoria 1">
+                      <option value = "termo1"> Termo 1 </option>
+                      <option value = "termo2"> Termo 2 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 2">
+                      <option value = "termo3"> Termo 3 </option>
+                      <option value = "termo4"> Termo 4 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 3">
+                      <option value = "termo5"> Termo 5 </option>
+                      <option value = "termo6"> Termo 6 </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Definição </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "definicaoVar" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Contexto </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "contextoVar" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+
+              <hr>
+              <div class = "form-group">
+                <label class = "col-md-4"> Fraseologia </label>
+
+                <div class = "col-md-7">
+                  <input type = "text" name = "fraseologia" id = "s2_tokenization" class = "form-control" value = "">
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Definição </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "definicaoFras" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Contexto </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "contextoFras" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+              <hr>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Nota </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "nota" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Sinônimos </label>
+
+                <div class = "col-md-7">
+                  <select id = "s2_multi_value1" name = "sinonimos" class = "form-control" multiple>
+                    <optgroup label = "Categoria 1">
+                      <option value = "termo1"> Termo 1 </option>
+                      <option value = "termo2"> Termo 2 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 2">
+                      <option value = "termo3"> Termo 3 </option>
+                      <option value = "termo4"> Termo 4 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 3">
+                      <option value = "termo5"> Termo 5 </option>
+                      <option value = "termo6"> Termo 6 </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Remissas </label>
+
+                <div class = "col-md-7">
+                  <select id = "s2_multi_value2" name = "remissas" class = "form-control" multiple>
+                    <optgroup label = "Categoria 1">
+                      <option value = "termo1"> Termo 1 </option>
+                      <option value = "termo2"> Termo 2 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 2">
+                      <option value = "termo3"> Termo 3 </option>
+                      <option value = "termo4"> Termo 4 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 3">
+                      <option value = "termo5"> Termo 5 </option>
+                      <option value = "termo6"> Termo 6 </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class = "form-group">
+								<label class = "col-md-4"> Equivalente </label>
+
+								<div class = "col-md-7">
+									<input value = "" type = "text" name = "equivalente" class = "form-control"/>
+								</div>
+              </div>
+
+							<br>
+
+              <div class = "form-group">
+								<div class = "col-md-7 col-md-push-3">
+									<button type = "reset" class = "btn btn-default"> RESETAR </button>
+									&nbsp;
+									<button type = "submit" class = "btn btn-primary"> CADASTRAR </button>
+								</div>
+							</div>
+
+						</form>
+          </div>
+  		  </div>
+  		</div>
+    </div>
+    
+    <div id = "edicaoTermo" class = "modal fade">
+  		<div class = "modal-dialog">
+  		  <div class = "modal-content">
+
+    			<div class = "modal-header">
+    			  <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true"> &times; </button>
+    			  <h3 class = "modal-title"> EDIÇÃO - TERMO </h3>
+          </div>
+          
+          <div class = "modal-body">
+            <form method = "POST" action = "/termo/editar" class = "form-horizontal">
+              <input style = "display: none" value = "identificador" name = "id">
+
+							<div class = "form-group">
+								<label class = "col-md-4"> Nome </label>
+
+								<div class = "col-md-7">
+									<input value = "" type = "text" name = "nome" class = "form-control" required/>
+								</div>
+							</div>
+              
+              <div class = "form-group">
+								<label class = "col-md-4"> Referência Gramatical </label>
+
+								<div class = "col-md-7">
+                  <select id = "s2_basic1" name = "refGramatical" class = "form-control">
+                    <optgroup label = "Referências">
+                      <option value = "adj"> Adjetivo (adj) </option>
+                      <option value = "sf"> Substantivo Feminino (sf) </option>
+                      <option value = "sm"> Substantivo Masculino (sm) </option>
+                    </optgroup>
+                  </select>
+								</div>
+              </div>
+              
+              <div class = "form-group">
+								<label class = "col-md-4"> Sigla/Acrônimo </label>
+
+								<div class = "col-md-5">
+									<input value = "" type = "text" name = "sigla" class = "form-control"/>
+								</div>
+              </div>
+
+              <hr>              
+              <div class = "form-group">
+                <label class = "col-md-4"> Variantes </label>
+
+                <div class = "col-md-7">
+                  <select id = "s2_multi_value3" name = "variantes" class = "form-control" multiple>
+                    <optgroup label = "Categoria 1">
+                      <option value = "termo1"> Termo 1 </option>
+                      <option value = "termo2"> Termo 2 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 2">
+                      <option value = "termo3"> Termo 3 </option>
+                      <option value = "termo4"> Termo 4 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 3">
+                      <option value = "termo5"> Termo 5 </option>
+                      <option value = "termo6"> Termo 6 </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Definição </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "definicaoVar" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Contexto </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "contextoVar" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+
+              <hr>
+              <div class = "form-group">
+                <label class = "col-md-4"> Fraseologia </label>
+
+                <div class = "col-md-7">
+                  <input type = "text" name = "fraseologia" id = "s2_tokenization1" class = "form-control" value = "">
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Definição </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "definicaoFras" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Contexto </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "contextoFras" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+              <hr>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Nota </label>
+
+                <div class = "col-md-7">
+                  <textarea id = "as-ex-2" name = "nota" class = "form-control" rows = "3"></textarea>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Sinônimos </label>
+
+                <div class = "col-md-7">
+                  <select id = "s2_multi_value4" name = "sinonimos" class = "form-control" multiple>
+                    <optgroup label = "Categoria 1">
+                      <option value = "termo1"> Termo 1 </option>
+                      <option value = "termo2"> Termo 2 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 2">
+                      <option value = "termo3"> Termo 3 </option>
+                      <option value = "termo4"> Termo 4 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 3">
+                      <option value = "termo5"> Termo 5 </option>
+                      <option value = "termo6"> Termo 6 </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class = "form-group">
+                <label class = "col-md-4"> Remissas </label>
+
+                <div class = "col-md-7">
+                  <select id = "s2_multi_value5" name = "remissas" class = "form-control" multiple>
+                    <optgroup label = "Categoria 1">
+                      <option value = "termo1"> Termo 1 </option>
+                      <option value = "termo2"> Termo 2 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 2">
+                      <option value = "termo3"> Termo 3 </option>
+                      <option value = "termo4"> Termo 4 </option>
+                    </optgroup>
+                    <optgroup label = "Categoria 3">
+                      <option value = "termo5"> Termo 5 </option>
+                      <option value = "termo6"> Termo 6 </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class = "form-group">
+								<label class = "col-md-4"> Equivalente </label>
+
+								<div class = "col-md-7">
+									<input value = "" type = "text" name = "equivalente" class = "form-control"/>
+								</div>
+              </div>
+
+							<br>
+
+              <div class = "form-group">
+								<div class = "col-md-7 col-md-push-3">
+									<button type = "reset" class = "btn btn-default"> RESETAR </button>
+									&nbsp;
+									<button type = "submit" class = "btn btn-primary"> SALVAR ALTERAÇÕES </button>
+								</div>
+							</div>
+
+						</form>
+          </div>
+  		  </div>
+  		</div>
+    </div>
+    
+    <div id = "removerTermo" class = "modal modal-styled fade">
+      <div class = "modal-dialog">
+        <div class = "modal-content">
+
+          <div class = "modal-header">
+            <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true"> &times; </button>
+            <h3 class = "modal-title"> REMOVER TERMO </h3>
+          </div>
+
+          <div class = "modal-body">
+						<form method = "POST" action = "" class = "form-horizontal">
+              <input name = "identificador" style = "display: none" value = "">
+              <p> Está seguro com essa ação? Está ação é definitiva! </p>
+              <hr>
+              <div class = "form-group">
+								<div class = "col-md-7 col-md-push-3">
+									<button type = "button" data-dismiss = "modal" class = "btn btn-default"> CANCELAR </button>
+									&nbsp;
+									<button type = "submit" class = "btn btn-primary"> REMOVER </button>
+								</div>
+							</div>
+
+						</form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class = "footer"></footer>
+  </body>
+</html>
