@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
   }
 
   res.render('index', {
-    usuario: req.session.nome
+    usuario: req.session.nome,
+    permissao: req.session.permissao
   });
 });
 

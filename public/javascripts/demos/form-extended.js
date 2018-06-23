@@ -25,21 +25,47 @@ $(function () {
 
   $('#s2_basic').select2 ({
     allowClear: true,
-    placeholder: "Select..."
+    placeholder: "Selecione..."
   })
 
   $('#s2_basic1').select2 ({
     allowClear: true,
-    placeholder: "Select..."
+    placeholder: "Selecione..."
   })
 
   $('#s2_multi_value').select2 ({
-    placeholder: "Select..."
+    placeholder: "Selecione..."
+  })
+
+  $('#s2_multi_value1').select2 ({
+    placeholder: "Selecione..."
+  })
+
+  $('#s2_multi_value2').select2 ({
+    placeholder: "Selecione..."
+  })
+
+  $('#s2_multi_value3').select2 ({
+    placeholder: "Selecione..."
+  })
+
+  $('#s2_multi_value4').select2 ({
+    placeholder: "Selecione..."
+  })
+
+  $('#s2_multi_value5').select2 ({
+    placeholder: "Selecione..."
   })
 
   $('#s2_tokenization').select2 ({
-    placeholder: "Select...",
-    tags:["red", "green", "blue", "black", "orange", "white"],
+    placeholder: "Selecione...",
+    tags:[],
+    tokenSeparators: [",", " "]
+  })
+
+  $('#s2_tokenization1').select2 ({
+    placeholder: "Selecione...",
+    tags:[],
     tokenSeparators: [",", " "]
   })
 

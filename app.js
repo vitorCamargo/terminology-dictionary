@@ -9,8 +9,8 @@ var session = require('express-session');
 
 var usuario = require('./routes/usuario');
 var index = require('./routes/index');
-var pesquisa = require('./routes/pesquisa');
-var cadastros = require('./routes/cadastros');
+var termo = require('./routes/termo');
+var categoria = require('./routes/categoria');
 
 var app = express();
 
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-              secret: '',
+              secret: 'dicionario',
               resave: false,
               saveUninitialized: true,
               cookie: { maxAge: new Date(Date.now() + (60 * 1000 * 15)) }
@@ -40,8 +40,8 @@ app.set('port', process.env.PORT || 8080);
 
 app.use('/usuario', usuario);
 app.use('/', index);
-app.use('/pesquisa', pesquisa);
-app.use('/cadastro', cadastros);
+app.use('/termo', termo);
+app.use('/categoria', categoria);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
