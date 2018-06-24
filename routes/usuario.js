@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 // Obtem controllers
-controller_usuario = require('../controllers/controller_usuario');
+var controller_usuario = require('../controllers/controller_usuario');
 
 // Abre página de gerenciamento de usuários.
 router.get('/cadastro', function(req, res, next) {
@@ -56,6 +56,7 @@ router.get('/perfil', function(req, res, next) {
       message: '',
       scriptEdit: '',
       dataAdminSenha: '',
+      senhaNova: '',
       dataUsuario: resultsUsuario
     });
   });

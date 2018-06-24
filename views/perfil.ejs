@@ -167,7 +167,7 @@
 						<form action = "/usuario/alterarSenha" method = "POST" class = "form-horizontal">
 							<% if(dataAdminSenha.length > 0) dataAdminSenha.forEach(function(admin) { %>
               	<input name = "usuario" type = "text" style = "display: none" value = "<%= admin.login %>">
-								<input name = "senha" type = "text" style = "display: none;" value = "<%= admin.senha %>">
+								<input name = "senha" type = "text" style = "display: none;" value = "<%= senhaNova %>">
 							<% }); %>
               <p> Está seguro com essa ação? Está ação é definitiva! </p>
               <hr>

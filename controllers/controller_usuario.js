@@ -288,6 +288,7 @@ exports.alteracaoSenha = function(req, res, next) {
           message: '',
           scriptEdit: '#alteraSenha',
           dataAdminSenha: results,
+          senhaNova: senhaNova1,
           dataUsuario: resultsUsuario
         });
       });
@@ -301,6 +302,7 @@ exports.alteracaoSenha = function(req, res, next) {
         message: mes,
         scriptEdit: '',
         dataAdminSenha: '',
+        senhaNova: '',
         dataUsuario: resultsUsuario
       });
     });
@@ -317,8 +319,9 @@ exports.alterarSenha = function(req, res, next) {
 
   var login = post.usuario;
   var senha = post.senha;
+  console.log(login + "   " + senha);
 
-  var sql = "UPDATE Admin SET senha = '" + senha + "' WHERE login = '" + login + "'";
+  var sql = "UPDATE admin SET senha = '" + senha + "' WHERE login = '" + login + "'";
   var messtatus = 'danger';
   var mes;
 
@@ -337,6 +340,7 @@ exports.alterarSenha = function(req, res, next) {
         message: mes,
         scriptEdit: '',
         dataAdminSenha: '',
+        senhaNova: '',
         dataUsuario: resultsUsuario
       });
     });

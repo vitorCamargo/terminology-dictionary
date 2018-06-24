@@ -8,7 +8,7 @@ $(function () {
 
   $('#cp-ex-1').simplecolorpicker ();
 
-  $('#cp-ex-2').simplecolorpicker({ 
+  $('#cp-ex-2').simplecolorpicker({
     picker: true
   });
 
@@ -29,6 +29,21 @@ $(function () {
   })
 
   $('#s2_basic1').select2 ({
+    allowClear: true,
+    placeholder: "Selecione..."
+  })
+
+  $('#s2_basic2').select2 ({
+    allowClear: true,
+    placeholder: "Selecione..."
+  })
+
+  $('#s2_basic3').select2 ({
+    allowClear: true,
+    placeholder: "Selecione..."
+  })
+
+  $('#s2_basic4').select2 ({
     allowClear: true,
     placeholder: "Selecione..."
   })
@@ -60,16 +75,28 @@ $(function () {
   $('#s2_tokenization').select2 ({
     placeholder: "Selecione...",
     tags:[],
-    tokenSeparators: [",", " "]
+    tokenSeparators: [";"]
   })
 
   $('#s2_tokenization1').select2 ({
     placeholder: "Selecione...",
     tags:[],
-    tokenSeparators: [",", " "]
+    tokenSeparators: [";"]
+  })
+
+  $('#s2_tokenization2').select2 ({
+    placeholder: "Selecione...",
+    tags:[],
+    tokenSeparators: [";"]
+  })
+
+  $('#s2_tokenization3').select2 ({
+    placeholder: "Selecione...",
+    tags:[],
+    tokenSeparators: [";"]
   })
 
   $('#as-ex-1').autosize ()
   $('#as-ex-2').autosize ().addClass ('autosize-animate')
-      
+
 })
