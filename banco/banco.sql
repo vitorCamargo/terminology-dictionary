@@ -41,74 +41,45 @@ CREATE TABLE tipo (
 -- Entidade
 
 CREATE TABLE termo (
-	id INTEGER AUTO_INCREMENT, -- primary key
-	
-
-	nome VARCHAR(1000), 
+	nome VARCHAR(100), 
 	rg VARCHAR(5), -- referncia gramatical
 	sigla VARCHAR(10), -- sigla e acrônomo
-	definicao VARCHAR(1000),
-	nota VARCHAR (1000), 
-	equivalente VARCHAR (1000), -- equivalente em espanhol
+    
+    variante VARCHAR(100),
+    fraseologia VARCHAR (100),
+    
+    definicao VARCHAR(1000),
+    contexto VARCHAR(1000),
+    nota VARCHAR (1000), 
+    equivalente VARCHAR (1000), -- equivalente em espanhol
 
 	alterou VARCHAR(15) NOT NULL, -- pessoa que fez a alteração deste termo
 	pertence VARCHAR(100) NOT NULL, -- Categoria que o termo pertence
 
-	PRIMARY KEY (id),
+	PRIMARY KEY (nome),
 	FOREIGN KEY (alterou) REFERENCES admin (login),
 	FOREIGN KEY (pertence) REFERENCES tipo (nome),
 	FOREIGN KEY (rg) REFERENCES gramatica (sigla)
 );
 -- Entidade
 
-CREATE TABLE relacionado (
-	relaciona INTEGER,
-	relacionado INTEGER,
-
-	FOREIGN KEY (relaciona) REFERENCES termo (id) ON DELETE CASCADE,
-	FOREIGN KEY (relacionado) REFERENCES termo (id) ON DELETE CASCADE,
-	PRIMARY KEY (relaciona, relacionado)
-);
--- relacionamento
-
 CREATE TABLE sinonimo (
-	termo INTEGER,
-	termoSinonimo INTEGER,
+	termo VARCHAR(100), 
+	termoSinonimo VARCHAR(100), 
 
 	PRIMARY KEY (termoSinonimo, termo),
-	FOREIGN KEY (termo) REFERENCES termo (id) ON DELETE CASCADE,
-	FOREIGN KEY (termoSinonimo) REFERENCES termo (id) ON DELETE CASCADE
+	FOREIGN KEY (termo) REFERENCES termo (nome) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (termoSinonimo) REFERENCES termo (nome) ON DELETE CASCADE ON UPDATE CASCADE
 );
 -- relacionamento
 
-CREATE TABLE fraseologia (
-	termo INTEGER,
-	fraseologia VARCHAR (100),
-	definicao VARCHAR (1000),
-	contexto VARCHAR (1000),
-
-	FOREIGN KEY (termo) REFERENCES termo (id) ON DELETE CASCADE,
-	PRIMARY KEY (termo, fraseologia)	
-);
--- Entidade Fraca
-
-CREATE TABLE variante ( -- variantes para cada termo
-	termo INTEGER,
-	variante VARCHAR(100),
-	definicao VARCHAR(1000),
-	contexto VARCHAR(1000),
-
-	FOREIGN KEY (termo) REFERENCES termo (id) ON DELETE CASCADE,
-	PRIMARY KEY (termo, variante)
-);
--- Entidade Fraca
 CREATE TABLE remissivas (
-	termo INTEGER,
-	termoRemissivo INTEGER,
+	termo VARCHAR(100),
+	termoRemissivo VARCHAR(100),
 
 
-	FOREIGN KEY (termo) REFERENCES termo (id) ON DELETE CASCADE,
-	FOREIGN KEY (termoRemissivo) REFERENCES termo (id) ON DELETE CASCADE,
+	FOREIGN KEY (termo) REFERENCES termo (nome) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (termoRemissivo) REFERENCES termo (nome) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY (termo, termoRemissivo)
 );
 -- relacionamento
