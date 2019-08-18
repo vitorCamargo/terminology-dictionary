@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('sistema-haken:server');
+var debug = require('debug')('terminology-dictionary:server');
 var http = require('http');
 
 /**
