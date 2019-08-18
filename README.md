@@ -1,4 +1,4 @@
-# Terminology Dictonary
+# Terminology Dictionary
 👨🏽‍💻📔 Assignment for 'Databases' subject about Implementation of Databases in WebSystems.
 
 ## More Informations
