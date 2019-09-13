@@ -3,3 +3,4 @@ node_modules/
 *.pdf
 
 database-connection.js
+package-lock.json
